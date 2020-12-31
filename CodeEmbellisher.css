@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(to bottom, #2CA98B, #6BC971);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 #navbar-items {
     display: flex;
     flex-direction: row;
@@ -33,14 +39,51 @@
     color:black;
 }
 
-#content-wrapper {
-    background-image: linear-gradient(to bottom, #2CA98B, #6BC971);
+/* #content-wrapper {
     position: absolute;
     width: 95vw;
     height: 91vh;
     top:52%;
     left:50%;
     transform: translate(-50%,-50%);
+} */
+
+.customizations {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 5px solid black;
+    margin: 1rem 1rem;
+}
+
+#tab-color {
+    width: 50px;
+    height: 50px;
+    margin: 1rem 1rem;
+}
+
+.theme-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-wrapper label {
+    font-size: 1.5em;
+    color: whitesmoke;
+    letter-spacing: 0.1em;
+}
+
+.themes {
+    width: 120px;
+    -webkit-appearance: none;
+    padding: 4px;
+    border: 4px solid rgb(245,245,245);
+}
+
+.themes option {
+    
 }
 
 #display-screen {
@@ -107,7 +150,6 @@
 }
 
 #tabs button {
-    /* margin-left: auto; */
     margin-right: 7px;
     border: none;
     font-size: 20px;
@@ -116,7 +158,6 @@
 }
 
 #display-content {
-    /* word-wrap: break-word; */
     margin: 1rem;
 }
 
@@ -131,21 +172,37 @@
     font-family: Menlo;
     min-width: 300px;
     max-width: 83vw;
-    /* max-height: 200px; */
 }
 
 
 
-/* TODO LIST */
+/* ---- TODO LIST ---- */
 
 /* DIFFERENT JS FILES FOR EACH PROGRAMMING LANGUAGE */
-/* CALC AND VARIABLES TO MAKE CUSTOM TAB COLORS */
-/* FIX TEXTAREA LOGIC AND POSITIONING */
+/* CALC AND VARIABLES */
 /* CHANGE IDS TO CLASSES */
-/* MAKE DIV MOVE WITH TEXT AREA */
+/* SKEW EFFECT */
+/* SASS/SCSS */
+/* KEYFRAMES ANIMATION */
+/* ADJUST TEXT AND MARGIN SIZES */
 /* LANGUAGE API */
-/* LOCALSTORAGE API */
+/* LOCALSTORAGE */
 /* ABOUT PAGE */
 /* CONTACT / FEEDBACK PAGE */
 /* WEBPACK */
  /* HIGHWAY FOR SWITCHING TABS */
+
+ /* --- BUTTONS ---- */
+
+/* THEME */
+/* CHANGE TAB COLOR */
+/* ADD TO PACKAGE.JSON */
+/* CHANGE FIRST TAB NAME AND RENAME THE OTHERS */
+/* STYLE SELECT TAG */
+/* CHANGE FONT SIZE AND COLOR */
+/* RANDOMIZE DESIGN */
+/* RESET EVERYTHING */
+/* DOWNLOAD PICTURE OR VIDEO */
+/* RECORD VIDEO OF KEYSTROKES */
+/* TAB SWITCHING */
+/* WHICH LANGUAGE (FOR SYNTAX STYLING) */

@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
     </head>
     <body>
+
         <nav>
             <ul id="navbar-items">
                 <li id="logo"><a href="">LOGO</a></li>
@@ -14,29 +15,44 @@
                 <li class="navbar-link"><a href="">Contact</a></li>
             </ul>
         </nav>
+
         <div id="content-wrapper">
 
             <div class="customizations">
-                <div>
-                    <input type="text" id='tab-color'>
-                    <input type="submit" value="SUBMIT" id='tab-color-submit' onclick="changeTabColor()">
+
+                <input type="color" id='tab-color' value="#b1b1b1">
+                <div class="theme-wrapper">
+                    <label>THEMES</label>
+                    <select class="themes">
+                        <option value="None">None</option>
+                        <option value="One Dark">One Dark</option>
+                        <option value="Monokai">Monokai</option>
+                        <option value="Tokyo Night">Tokyo Night</option>
+                        <option value="Bear">Bear</option>
+                    </select>
                 </div>
+
             </div>
+
             <div id="display-screen">
+
                 <div id="display-menu">
                     <div class="menu-circles"></div>
                     <div class="menu-circles"></div>
                     <div class="menu-circles"></div>
                 </div>
+
                 <div id="display-tabs">
                     <ul id="tabs">
                         <li>Tab 1</li>
                         <button id="new-tab" onclick='addTab()'>+</button>
                     </ul>
                 </div>
+
                 <div id="display-content">
                     <textarea id="main-input" name="" rows="8" cols="23" spellcheck="false"></textarea>
                 </div>
+
             </div>
         </div>
         <script src="./CodeEmbellisher.js"></script>
