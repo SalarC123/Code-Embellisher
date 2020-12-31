@@ -1,0 +1,27 @@
+{
+    "None": {
+        "mainBG": "#f5f5f5",
+        "textBG": "#f5f5f5",
+        "fontColor": "#000000"
+    },
+    "One Dark": {
+        "mainBG": "#282C34",
+        "textBG": "#282C34",
+        "fontColor": "#ABB2BF"
+    },
+    "Monokai": {
+        "mainBG": "",
+        "textBG": "",
+        "fontColor": ""
+    },
+    "Tokyo Night": {
+        "mainBG": "",
+        "textBG": "",
+        "fontColor": ""
+    },
+    "Bear": {
+        "mainBG": "",
+        "textBG": "",
+        "fontColor": ""
+    }
+}
