@@ -1,3 +1,5 @@
+@import url(//db.onlinewebfonts.com/c/9f94dc20bb2a09c15241d3a880b7ad01?family=Menlo);
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +10,9 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    margin-top: 1rem;
+    margin-top: 0rem;
+    padding: 0.5rem 0rem;
+    background-color: #2CA98A;
 }
 
 #logo {
@@ -40,10 +44,11 @@
 }
 
 #display-screen {
+    display: inline-block;
     position: relative;
     background-color: whitesmoke;
-    width: 200px;
-    height: 200px;
+    max-width: 85vw;
+    min-width: 300px;
     margin-left: 5%;
     margin-top: 20%;
     border-radius: 10px;
@@ -90,13 +95,14 @@
     flex-direction: row;
     list-style: none;
     background-color: rgb(216, 216, 216);
+    align-items: center;
 }
 
 #tabs li {
     flex: 1;
     text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-size: 14px;
 }
 
@@ -111,7 +117,7 @@
 
 #display-content {
     /* word-wrap: break-word; */
-    margin: 1rem
+    margin: 1rem;
 }
 
 #main-input {
@@ -122,6 +128,9 @@
     resize: horizontal;
     font-size: 18px;
     font-family: sans-serif;
+    font-family: Menlo;
+    min-width: 300px;
+    max-width: 83vw;
     /* max-height: 200px; */
 }
 
@@ -129,10 +138,14 @@
 
 /* TODO LIST */
 
+/* DIFFERENT JS FILES FOR EACH PROGRAMMING LANGUAGE */
+/* CALC AND VARIABLES TO MAKE CUSTOM TAB COLORS */
 /* FIX TEXTAREA LOGIC AND POSITIONING */
+/* CHANGE IDS TO CLASSES */
 /* MAKE DIV MOVE WITH TEXT AREA */
 /* LANGUAGE API */
 /* LOCALSTORAGE API */
 /* ABOUT PAGE */
 /* CONTACT / FEEDBACK PAGE */
-/* PARCEL + GSAP FOR SWITCHING TABS */
+/* WEBPACK */
+ /* HIGHWAY FOR SWITCHING TABS */

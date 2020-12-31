@@ -3,18 +3,12 @@
 let input = document.querySelector('#main-input')                // CHANGE TAG
 let displayScreen = document.querySelector('#display-screen')
 
-// EXPAND ROW AND COL AND DIV SIZE WHEN TYPING
+// EXPAND ROW + DIV SIZE WHEN TYPING
 
-let counter = 200
 input.addEventListener('input', (e) => {
-    let inputLength = e.target.value.length                     // DONT USE LENGTH
-    let inputColAmount = e.target.cols
-    let inputRowAmount = e.target.rows
-    if (inputLength > inputColAmount) {
-        displayScreen.style.width = `${counter}px`
-        counter += 5
-        inputColAmount++
-    }
+    e.target.style.height = "1px";
+    e.target.style.height = (e.target.scrollHeight)+"px"
+    console.log(e.target.scrollHeight)
 })
 
 // ADD NEW TAB ON BUTTON CLICK
@@ -30,3 +24,30 @@ function addTab() {
         ul.insertBefore(newLi, addTabButton)
     }
 }
+
+// CHANGE TAB COLOR
+
+const displayMenu = document.querySelector('#display-menu')
+const tabs = document.querySelector('#tabs')
+const addTabButton = document.querySelector('#new-tab')
+
+function changeTabColor () {
+    let tabColorInput = document.querySelector('#tab-color')
+    let rgb = tabColorInput.value.slice(4,-1).split(',')
+    let newRGB = `rgb(${parseInt(rgb[0]) + 20},${parseInt(rgb[1]) + 20},${parseInt(rgb[2]) + 20})`
+    displayMenu.style.backgroundColor = tabColorInput.value
+    tabs.style.backgroundColor = newRGB
+    addTabButton.style.backgroundColor = newRGB
+    tabColorInput.value = ''
+}
+
+// // LISTEN FOR "TAB" BUTTON WHILE IN THE TEXT EDITOR
+
+// input.addEventListener('keydown', function(e) {
+//     if (e.key == 'Tab') {
+//         e.preventDefault()
+//         let startPosition = input.selectionStart
+//         startPosition += '    '
+//         https://stackoverflow.com/questions/34528022/resize-textarea-with-div
+//     }
+// })
