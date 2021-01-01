@@ -24,17 +24,28 @@ function addTab() {
         let addTabButton = document.querySelector('#new-tab')
         let ul = document.querySelector('#tabs')
         let newLi = document.createElement('LI')
-        answer = prompt('Tab Name: ')
+        answer = prompt('Tab Name')
         if (answer) {  
             newLi.innerHTML = answer                 // ADD FUNCTION TO CHANGE FIRST TAB
             ul.insertBefore(newLi, addTabButton)
+            ul.insertBefore(newTing, newLi)
             numOfTabs++
         }
     }
 }
 
 
-// CHANGE TAB COLOR
+// CHANGE TAB AND BUTTON OUTLIINE COLOR
+
+buttonsWithOutlines = [
+    themes, 
+    document.querySelector('.show-hide-tabs button:nth-child(2)'), 
+    document.querySelector('.show-hide-tabs button:nth-child(3)'),
+    document.querySelector('.font input'),
+    document.querySelector('.reset button'),
+    document.querySelector('.randomize button'),
+    document.querySelector('.font-types')
+]
 
 tabColorInput.addEventListener('change', (e) => {
     tabColor = e.target.value
@@ -42,7 +53,9 @@ tabColorInput.addEventListener('change', (e) => {
     displayMenu.style.backgroundColor = tabColor
     tabs.style.backgroundColor = newTabColor
     addTabButton.style.backgroundColor = newTabColor
-    themes.style.borderColor = tabColor
+    for (item of buttonsWithOutlines) {
+        item.style.borderColor = tabColor
+    }
 })
 
 // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
@@ -90,14 +103,60 @@ function lightenColor(color) {
 
 // CHANGE THEME 
 
-let object;
+let json;
 
 fetch('./themes.json')
 .then(res => res.json())
-.then(data => object = data)
+.then(data => json = data)
 
 themes.addEventListener('change', (e) => {
-    displayScreen.style.backgroundColor = object[e.target.value]['mainBG']
-    input.style.backgroundColor = object[e.target.value]['textBG']
-    input.style.color = object[e.target.value]['fontColor']
+    displayScreen.style.backgroundColor = json["Themes"][e.target.value]['mainBG']
+    input.style.backgroundColor = json["Themes"][e.target.value]['textBG']
+    input.style.color = json["Themes"][e.target.value]['fontColor']
 })
+
+
+// SHOW / HIDE TABS
+
+function showTabs() {
+    tabs.style.display = 'flex'
+}
+
+function hideTabs() {
+    tabs.style.display = 'none'
+}
+
+
+// CHANGE FONT SIZE
+
+let fontInput = document.querySelector('.font input')
+let fontError = document.querySelector('.font-error')
+
+fontInput.addEventListener('input', (e) => {
+    let num = e.target.value
+    if (num > 10 && num < 50) {
+        input.style.fontSize = num + 'px'
+        fontError.style.opacity = '0'
+        fontError.style.top = '-5%'
+    } else {
+        fontError.style.opacity = '1'
+        fontError.style.top = '5%'
+    }
+})
+
+
+
+
+// RESET STYLING
+
+function resetStyles() {
+    fontInput.value = 18
+    input.style.fontSize = '18px'
+    input.style.fontFamily = 'Menlo'
+    input.style.color = 'black'
+    input.style.backgroundColor = 'whitesmoke'
+    displayScreen.style.backgroundColor = 'whitesmoke'
+    tabs.style.backgroundColor = 'rgb(216, 216, 216)'
+    displayMenu.style.backgroundColor = 'rgb(177, 177, 177)'
+    addTabButton.style.backgroundColor = 'rgb(216, 216, 216)'
+}
