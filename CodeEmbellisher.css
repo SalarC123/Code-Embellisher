@@ -1,5 +1,12 @@
-@import url(//db.onlinewebfonts.com/c/9f94dc20bb2a09c15241d3a880b7ad01?family=Menlo);
+/* DEFAULT PAGE FONT */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');
+
+/* FONT FAMILIES */
+@import url(//db.onlinewebfonts.com/c/9f94dc20bb2a09c15241d3a880b7ad01?family=Menlo);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
 
 * {
     margin: 0;
@@ -24,19 +31,19 @@ body {
     justify-content: flex-end;
     margin-top: 0rem;
     padding: 0.5rem 0rem;
+    align-items: center;
     background-color: #2CA98A;
+    list-style-type: none;
 }
 
 #logo {
     margin-right: auto;
     margin-left: 2rem;
-    list-style-type: none;
     font-size: 2.5rem;
 }
 
 .navbar-link {
-    list-style-type: none;
-    margin-right: 5rem;
+    margin-right: 3rem;
     font-size: 2.5rem;
 }
 
@@ -44,6 +51,58 @@ body {
     text-decoration: none;
     color:white;
 }
+
+.hamburger {
+    display: none;
+    margin-right: 3rem;
+    z-index: 6;
+}
+
+.hamburger img {
+    width: 45px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.hamburger img:hover {
+    opacity: 0.6;
+}
+
+.hamburger-display {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:40vh;
+    background-color: #2CA98A;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    top: -50%;
+    transition: top 1s ease;
+}
+
+.hamburger-display a {
+    text-decoration:none;
+    font-size: 30px;
+    color: white;
+    margin:1rem 0;
+}
+
+.hamburger-display.opened {
+    display: flex;
+    top: 0%;
+}
+
+@media screen and (max-width:812px) {
+    .navbar-link {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+}
+
 
 /* #content-wrapper {
     position: absolute;
@@ -62,8 +121,10 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
     border: 5px solid white;
     margin: 1rem 1rem;
+    /* perspective: 500; */
 }
 
 label {
@@ -85,7 +146,7 @@ label {
     align-items: center;
 }
 
-.themes,.font-types {
+.themes,.font-families {
     font-size: 13px;
     width: 100%;
     -webkit-appearance: none;
@@ -103,6 +164,7 @@ label {
     margin: 1rem 1rem;
     /* align-items: flex-end; */
     /* justify-content: center; */
+    text-align: center;
 }
 
 .show-hide-tabs button {
@@ -111,17 +173,19 @@ label {
     border: 4px solid rgb(245,245,245);
     margin: 0.2rem;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .show-hide-tabs button:hover {
     opacity: 0.8;
 }
 
-.font, .reset, .randomize {
+.font, .reset, .randomize, .download {
     display: flex;
     flex-direction: column;
     margin: 1rem 1rem;
     align-items: center;
+    text-align: center;
 }
 
 .reset img {
@@ -133,6 +197,10 @@ label {
     width:100%;
 }
 
+.download img {
+    width: 100%;
+}
+
 .font input {
     font-size: 15px;
     padding: 2px;
@@ -141,15 +209,16 @@ label {
     border-radius: 5px;
 }
 
-.randomize button, .reset button {
+.randomize button, .reset button, .download button {
     border: 4px solid rgb(245,245,245);
     background-color: white;
     border-radius: 5px;
     padding: 5px;
     width: 20%;
+    cursor: pointer;
 }
 
-.randomize button:hover, .reset button:hover {
+.randomize button:hover, .reset button:hover, .download button:hover {
     opacity: 0.8;
 }
 
@@ -252,15 +321,21 @@ label {
     max-width: 93vw;
 }
 
+/* @media (max-width: 767px) and (orientation:portrait) and (min-resolution: 300dpi) {
+    body {
+        font-size: 5px;
+    }
+} */
 
 
 /* ---- TODO LIST ---- */
 
-/* DIFFERENT JS FILES FOR EACH PROGRAMMING LANGUAGE */
 /* CALC AND VARIABLES */
 /* CHANGE IDS TO CLASSES */
 /* SKEW EFFECT */
 /* SASS/SCSS */
+/* ADD TO THEMES.JSON  */
+/* ADD MORE FONTS */
 /* KEYFRAMES ANIMATION */
 /* ADJUST TEXT AND MARGIN SIZES */
 /* LANGUAGE API */
@@ -268,22 +343,23 @@ label {
 /* ABOUT PAGE */
 /* CONTACT / FEEDBACK PAGE */
 /* WEBPACK */
- /* HIGHWAY FOR OTHER ROUTES */
+ /* NEXTJS FOR ROUTES */
  /* RENAME PROJECT */
  /* THREE JS */
+ /* README - WHAT PACKAGES TO INSTALL WITH NPM (HTML2CANVAS) */
+ /* TEST ON OTHER BROWSERS */
 
  /* --- BUTTONS ---- */
 
-/* ADD TO THEMES.JSON  */
 /* FIX THEME COLORS IN JSON FILE */
 /* TAB NAMES??? */
-/* FUNCTIONAL TABS */
+/* FUNCTIONAL TABS - THEY MUST HAVE DIFFERENT NAMES */
+/* TOGGLE LINE NUMBERS */
+/* ADJUST LINE HEIGHT??? */
 /* STYLE "SELECT" TAGS */
-/* CHOOSE FONT (FONTS.JSON) */
 /* RANDOMIZE DESIGN */
-/* RESET EVERYTHING */
 /* CHANGE ALL "LABELS" INTO H2 */
 /* DOWNLOAD PICTURE OR VIDEO */
 /* RECORD VIDEO OF KEYSTROKES */
 /* TAB SWITCHING */
-/* WHICH LANGUAGE (FOR SYNTAX STYLING) */
+/* WHICH LANGUAGE (FOR SYNTAX STYLING) (PROBABLY MAKE JSON TO HOLD THE VAR COLORS FOR EACH LANG) */

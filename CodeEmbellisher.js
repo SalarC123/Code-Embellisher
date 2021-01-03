@@ -44,7 +44,8 @@ buttonsWithOutlines = [
     document.querySelector('.font input'),
     document.querySelector('.reset button'),
     document.querySelector('.randomize button'),
-    document.querySelector('.font-types')
+    document.querySelector('.font-families'),
+    document.querySelector('.download button')
 ]
 
 tabColorInput.addEventListener('change', (e) => {
@@ -144,8 +145,13 @@ fontInput.addEventListener('input', (e) => {
     }
 })
 
+// CHANGE FONT-FAMILY 
 
+let fontFamily = document.querySelector('.font-families')
 
+fontFamily.addEventListener('change', (e) => {
+    input.style.fontFamily = e.target.value
+})
 
 // RESET STYLING
 
@@ -160,3 +166,42 @@ function resetStyles() {
     displayMenu.style.backgroundColor = 'rgb(177, 177, 177)'
     addTabButton.style.backgroundColor = 'rgb(216, 216, 216)'
 }
+
+// RANDOM STYLING
+
+function randomize() {
+    // change - color,theme,fontSize,fontFamily
+    let randomRGB = `rgb(${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1})`
+
+}
+
+// DOWNLOAD PICTURE
+
+// function download () { 
+//     html2canvas(input, {backgroundColor:null}).then( 
+//         function (canvas) { 
+//             document.getElementById('output').appendChild(canvas)
+//     }
+// )}
+
+
+// SHOW NAVBAR LINKS THAT WERE HIDDEN DURING WINDOW RESIZE
+
+function openHamburgerMenu() {
+    document.querySelector('.hamburger-display').classList.toggle('opened')
+    
+}
+
+
+// fetch('https://reqres.in/api/users', {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": 'application/json'
+//     },
+//     body: JSON.stringify({
+//         age:13,
+//         height:62
+//     })
+// })
+// .then(res => res.json())
+//   .then(data => console.log(data))
