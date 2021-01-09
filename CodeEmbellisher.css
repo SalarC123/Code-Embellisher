@@ -22,9 +22,6 @@ body {
 }
 
 
-
-
-
 #navbar-items {
     display: flex;
     flex-direction: row;
@@ -76,10 +73,10 @@ body {
     height:40vh;
     background-color: #2CA98A;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     z-index: 5;
     top: -50%;
-    transition: top 1s ease;
+    transition: top 1s ease-out;
 }
 
 .hamburger-display a {
@@ -121,6 +118,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     border: 5px solid white;
     margin: 1rem 1rem;
@@ -251,6 +249,13 @@ label {
     /* transition: transform 0.5s ease-in; */
 }
 
+.cloned {
+    position: absolute;
+    top:0rem;
+    /* margin-left: 0rem; */
+    display: none;
+}
+
 #display-menu {
     position: relative;
     background-color: rgb(177, 177, 177);
@@ -294,6 +299,7 @@ label {
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 14px;
+    cursor: pointer;
 }
 
 #tabs button {
@@ -304,11 +310,15 @@ label {
     background-color: rgb(216, 216, 216);
 }
 
+/* .highlighted {
+    background-color: gray;
+} */
+
 #display-content {
     margin: 1rem;
 }
 
-#main-input {
+.main-input {
     position: relative;
     border: none;
     background-color: whitesmoke;
@@ -319,6 +329,7 @@ label {
     font-family: Menlo;
     min-width: 300px;
     max-width: 93vw;
+    /* white-space: pre-wrap; */
 }
 
 /* @media (max-width: 767px) and (orientation:portrait) and (min-resolution: 300dpi) {
@@ -343,14 +354,16 @@ label {
 /* ABOUT PAGE */
 /* CONTACT / FEEDBACK PAGE */
 /* WEBPACK */
- /* NEXTJS FOR ROUTES */
- /* RENAME PROJECT */
- /* THREE JS */
- /* README - WHAT PACKAGES TO INSTALL WITH NPM (HTML2CANVAS) */
- /* TEST ON OTHER BROWSERS */
+/* NEXTJS FOR ROUTES */
+/* RENAME PROJECT */
+/* THREE JS */
+/* README - WHAT PACKAGES TO INSTALL WITH NPM (HTML2CANVAS) */
+/* DELETE DOMTOIMAGE FROM PACKAGESJSON */
+/* TEST ON OTHER BROWSERS */
 
- /* --- BUTTONS ---- */
+/* --- BUTTONS ---- */
 
+/* HIGHLIGHTJS OR PRISMJS */
 /* FIX THEME COLORS IN JSON FILE */
 /* TAB NAMES??? */
 /* FUNCTIONAL TABS - THEY MUST HAVE DIFFERENT NAMES */

@@ -1,19 +1,27 @@
 // COMMON DOM VARIABLES
 
-let input = document.querySelector('#main-input')                // CHANGE TAG
+let input = document.querySelector('.main-input')
 let displayScreen = document.querySelector('#display-screen')
 const displayMenu = document.querySelector('#display-menu')
 const tabs = document.querySelector('#tabs')
 const addTabButton = document.querySelector('#new-tab')
 let tabColorInput = document.querySelector('#tab-color')
 let themes = document.querySelector('.themes')
+let displayContent = document.querySelector('#display-content')
 
 // EXPAND ROW + DIV SIZE WHEN TYPING
 
-input.addEventListener('input', (e) => {
-    e.target.style.height = "1px";
-    e.target.style.height = (e.target.scrollHeight)+"px"
-})
+let currentTab = input; // use this for changing font size and family in other parts of the code
+
+function adjustBoxSize(elem) {
+    elem.style.height = "1px";
+    elem.style.height = (elem.scrollHeight)+"px"
+}
+
+// input.addEventListener('input', (e) => {
+//     e.target.style.height = "1px";
+//     e.target.style.height = (e.target.scrollHeight)+"px"
+// })
 
 // ADD NEW TAB ON BUTTON CLICK
 
@@ -21,18 +29,50 @@ let numOfTabs = 1
 let maxNumOfTabs = 4
 function addTab() {
     if (numOfTabs < maxNumOfTabs) {
-        let addTabButton = document.querySelector('#new-tab')
-        let ul = document.querySelector('#tabs')
         let newLi = document.createElement('LI')
+
+        // Add name
         answer = prompt('Tab Name')
         if (answer) {  
             newLi.innerHTML = answer                 // ADD FUNCTION TO CHANGE FIRST TAB
-            ul.insertBefore(newLi, addTabButton)
-            ul.insertBefore(newTing, newLi)
+            tabs.insertBefore(newLi, addTabButton)
             numOfTabs++
         }
+
+        // Create a textarea for the new tab
+        let clonedInput = input.cloneNode(true)
+        clonedInput.classList.add('cloned', `tab-number-${numOfTabs}`)
+        clonedInput.oninput = 'adjustBoxSize(clonedInput)'
+        clonedInput.value = ''
+
+        displayContent.appendChild(clonedInput)
     }
 }
+
+// CHANGE TAB ON CLICK
+
+tabs.addEventListener('click', (e) => {
+    // e.target.classList.toggle('highlighted')
+    if (e.target instanceof HTMLLIElement) {
+
+        // removes all other textareas out of view
+        Array.from(document.querySelectorAll('textarea')).forEach(function (elem) {
+            elem.style.display = 'none'
+        })
+
+        // Finds which tab was clicked
+        childNum = Array.from(e.target.parentElement.childNodes)
+            .filter(
+                elem => elem instanceof HTMLLIElement
+            ).indexOf(e.target) + 1
+
+
+        inputForTab = document.querySelector(`textarea:nth-child(${childNum})`)
+        inputForTab.style.display = 'block'
+
+        currentTab = inputForTab
+    }
+})
 
 
 // CHANGE TAB AND BUTTON OUTLIINE COLOR
@@ -58,6 +98,7 @@ tabColorInput.addEventListener('change', (e) => {
         item.style.borderColor = tabColor
     }
 })
+
 
 // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
 function lightenColor(color) {
@@ -177,19 +218,25 @@ function randomize() {
 
 // DOWNLOAD PICTURE
 
-// function download () { 
-//     html2canvas(input, {backgroundColor:null}).then( 
-//         function (canvas) { 
-//             document.getElementById('output').appendChild(canvas)
-//     }
-// )}
+function download () { 
+    // let randomDiv = document.createElement('div')
+    // randomDiv.style.marginRight = '0'
+    // randomDiv.innerText = input.value
+
+    // input.replaceWith(randomDiv)
+    html2canvas(displayScreen, {backgroundColor:null}).then( 
+        function (canvas) { 
+            document.getElementById('output').appendChild(canvas)
+        }
+    )
+    // randomDiv.replaceWith(input)
+}
 
 
 // SHOW NAVBAR LINKS THAT WERE HIDDEN DURING WINDOW RESIZE
 
 function openHamburgerMenu() {
     document.querySelector('.hamburger-display').classList.toggle('opened')
-    
 }
 
 
