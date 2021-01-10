@@ -11,17 +11,13 @@ let displayContent = document.querySelector('#display-content')
 
 // EXPAND ROW + DIV SIZE WHEN TYPING
 
-let currentTab = input; // use this for changing font size and family in other parts of the code
+let currentInput = input; // use this for changing font size and family in other parts of the code
+let currentTab = tabs.children[0]
 
-function adjustBoxSize(elem) {
+function adjustBoxSize(elem = currentInput) {
     elem.style.height = "1px";
     elem.style.height = (elem.scrollHeight)+"px"
 }
-
-// input.addEventListener('input', (e) => {
-//     e.target.style.height = "1px";
-//     e.target.style.height = (e.target.scrollHeight)+"px"
-// })
 
 // ADD NEW TAB ON BUTTON CLICK
 
@@ -42,7 +38,8 @@ function addTab() {
         // Create a textarea for the new tab
         let clonedInput = input.cloneNode(true)
         clonedInput.classList.add('cloned', `tab-number-${numOfTabs}`)
-        clonedInput.oninput = 'adjustBoxSize(clonedInput)'
+        
+        clonedInput.setAttribute('oninput', 'adjustBoxSize()')
         clonedInput.value = ''
 
         displayContent.appendChild(clonedInput)
@@ -53,7 +50,7 @@ function addTab() {
 
 tabs.addEventListener('click', (e) => {
     // e.target.classList.toggle('highlighted')
-    if (e.target instanceof HTMLLIElement) {
+    if (e.target instanceof HTMLLIElement && !(e.target == currentTab)) {
 
         // removes all other textareas out of view
         Array.from(document.querySelectorAll('textarea')).forEach(function (elem) {
@@ -66,11 +63,12 @@ tabs.addEventListener('click', (e) => {
                 elem => elem instanceof HTMLLIElement
             ).indexOf(e.target) + 1
 
-
+        // Displays new textarea
         inputForTab = document.querySelector(`textarea:nth-child(${childNum})`)
         inputForTab.style.display = 'block'
 
-        currentTab = inputForTab
+        currentInput = inputForTab
+        currentTab = tabs.children[childNum - 1]
     }
 })
 
@@ -153,8 +151,12 @@ fetch('./themes.json')
 
 themes.addEventListener('change', (e) => {
     displayScreen.style.backgroundColor = json["Themes"][e.target.value]['mainBG']
-    input.style.backgroundColor = json["Themes"][e.target.value]['textBG']
-    input.style.color = json["Themes"][e.target.value]['fontColor']
+    document.querySelectorAll('textarea').forEach(elem => {
+        elem.style.backgroundColor = json["Themes"][e.target.value]['textBG']
+    })
+    document.querySelectorAll('textarea').forEach(elem => {
+        elem.style.color = json["Themes"][e.target.value]['fontColor']
+    })
 })
 
 
@@ -177,7 +179,7 @@ let fontError = document.querySelector('.font-error')
 fontInput.addEventListener('input', (e) => {
     let num = e.target.value
     if (num > 10 && num < 50) {
-        input.style.fontSize = num + 'px'
+        currentInput.style.fontSize = num + 'px'
         fontError.style.opacity = '0'
         fontError.style.top = '-5%'
     } else {
@@ -191,17 +193,17 @@ fontInput.addEventListener('input', (e) => {
 let fontFamily = document.querySelector('.font-families')
 
 fontFamily.addEventListener('change', (e) => {
-    input.style.fontFamily = e.target.value
+    currentInput.style.fontFamily = e.target.value
 })
 
 // RESET STYLING
 
 function resetStyles() {
     fontInput.value = 18
-    input.style.fontSize = '18px'
-    input.style.fontFamily = 'Menlo'
-    input.style.color = 'black'
-    input.style.backgroundColor = 'whitesmoke'
+    currentInput.style.fontSize = '18px'
+    currentInput.style.fontFamily = 'Menlo'
+    currentInput.style.color = 'black'
+    currentInput.style.backgroundColor = 'whitesmoke'
     displayScreen.style.backgroundColor = 'whitesmoke'
     tabs.style.backgroundColor = 'rgb(216, 216, 216)'
     displayMenu.style.backgroundColor = 'rgb(177, 177, 177)'

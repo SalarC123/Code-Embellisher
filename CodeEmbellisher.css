@@ -310,6 +310,10 @@ label {
     background-color: rgb(216, 216, 216);
 }
 
+#tabs button:active {
+    color: rgb(142, 142, 142);
+}
+
 /* .highlighted {
     background-color: gray;
 } */
@@ -329,7 +333,6 @@ label {
     font-family: Menlo;
     min-width: 300px;
     max-width: 93vw;
-    /* white-space: pre-wrap; */
 }
 
 /* @media (max-width: 767px) and (orientation:portrait) and (min-resolution: 300dpi) {
@@ -341,38 +344,37 @@ label {
 
 /* ---- TODO LIST ---- */
 
-/* CALC AND VARIABLES */
+/* NEXTJS FOR ROUTES */
+/* ABOUT PAGE */
+/* CONTACT / FEEDBACK PAGE */
+
 /* CHANGE IDS TO CLASSES */
 /* SKEW EFFECT */
 /* SASS/SCSS */
-/* ADD TO THEMES.JSON  */
-/* ADD MORE FONTS */
 /* KEYFRAMES ANIMATION */
 /* ADJUST TEXT AND MARGIN SIZES */
-/* LANGUAGE API */
+/* CHANGE UP CUSTOMIZATIONS BOX */
+
 /* LOCALSTORAGE */
-/* ABOUT PAGE */
-/* CONTACT / FEEDBACK PAGE */
-/* WEBPACK */
-/* NEXTJS FOR ROUTES */
-/* RENAME PROJECT */
 /* THREE JS */
+/* WEBPACK */
+
+/* RENAME PROJECT */
 /* README - WHAT PACKAGES TO INSTALL WITH NPM (HTML2CANVAS) */
 /* DELETE DOMTOIMAGE FROM PACKAGESJSON */
 /* TEST ON OTHER BROWSERS */
 
-/* --- BUTTONS ---- */
+/* ADD TO THEMES.JSON  */
+/* ADD MORE FONTS */
+/* FIX THEME COLORS IN JSON FILE */
 
 /* HIGHLIGHTJS OR PRISMJS */
-/* FIX THEME COLORS IN JSON FILE */
+/* WHICH LANGUAGE (FOR SYNTAX STYLING) */
+
 /* TAB NAMES??? */
-/* FUNCTIONAL TABS - THEY MUST HAVE DIFFERENT NAMES */
-/* TOGGLE LINE NUMBERS */
-/* ADJUST LINE HEIGHT??? */
+
 /* STYLE "SELECT" TAGS */
 /* RANDOMIZE DESIGN */
-/* CHANGE ALL "LABELS" INTO H2 */
+
 /* DOWNLOAD PICTURE OR VIDEO */
 /* RECORD VIDEO OF KEYSTROKES */
-/* TAB SWITCHING */
-/* WHICH LANGUAGE (FOR SYNTAX STYLING) (PROBABLY MAKE JSON TO HOLD THE VAR COLORS FOR EACH LANG) */
