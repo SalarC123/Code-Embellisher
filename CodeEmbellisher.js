@@ -9,6 +9,10 @@ let tabColorInput = document.querySelector('#tab-color')
 let themes = document.querySelector('.themes')
 let displayContent = document.querySelector('#display-content')
 
+// Give main tab the highlighted effect
+let firstTab = document.querySelector('#tabs li:first-child')
+firstTab.style.backgroundColor = tabColorInput.value
+
 // EXPAND ROW + DIV SIZE WHEN TYPING
 
 let currentInput = input; // use this for changing font size and family in other parts of the code
@@ -40,6 +44,7 @@ function addTab() {
         clonedInput.classList.add('cloned', `tab-number-${numOfTabs}`)
         
         clonedInput.setAttribute('oninput', 'adjustBoxSize()')
+        clonedInput.style.display = 'none'
         clonedInput.value = ''
 
         displayContent.appendChild(clonedInput)
@@ -49,15 +54,22 @@ function addTab() {
 // CHANGE TAB ON CLICK
 
 tabs.addEventListener('click', (e) => {
-    // e.target.classList.toggle('highlighted')
+
     if (e.target instanceof HTMLLIElement && !(e.target == currentTab)) {
 
-        // removes all other textareas out of view
+        // Toggle the color of the clicked tab
+        let highlightedTab = document.querySelector('.highlighted')
+        highlightedTab.classList.remove('highlighted')
+        highlightedTab.style.backgroundColor = addTabButton.style.backgroundColor
+        e.target.classList.add('highlighted')
+        e.target.style.backgroundColor = tabColorInput.value
+
+        // removes all other textareas from view
         Array.from(document.querySelectorAll('textarea')).forEach(function (elem) {
             elem.style.display = 'none'
         })
 
-        // Finds which tab was clicked
+        // Finds index of clicked tab
         childNum = Array.from(e.target.parentElement.childNodes)
             .filter(
                 elem => elem instanceof HTMLLIElement
@@ -88,8 +100,12 @@ buttonsWithOutlines = [
 
 tabColorInput.addEventListener('change', (e) => {
     tabColor = e.target.value
-    newTabColor = lightenColor(tabColor)
+    newTabColor = lightenOrDarkenColor(tabColor, 20)
     displayMenu.style.backgroundColor = tabColor
+    
+    let highlightedTab = document.querySelector('.highlighted')
+    highlightedTab.style.backgroundColor = tabColor
+
     tabs.style.backgroundColor = newTabColor
     addTabButton.style.backgroundColor = newTabColor
     for (item of buttonsWithOutlines) {
@@ -99,32 +115,30 @@ tabColorInput.addEventListener('change', (e) => {
 
 
 // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
-function lightenColor(color) {
-  
-    let usePound = false;
-  
-    if (color[0] == "#") {
+function lightenOrDarkenColor(color, amount) {
+    var usePound = false;
+    if ( color[0] == "#" ) {
         color = color.slice(1);
         usePound = true;
     }
- 
-    let num = parseInt(color,16);
- 
-    let r = (num >> 16) + 20;
- 
-    if (r > 255) r = 255;
+
+    var num = parseInt(color,16);
+
+    var r = (num >> 16) + amount;
+
+    if ( r > 255 ) r = 255;
     else if  (r < 0) r = 0;
- 
-    let b = ((num >> 8) & 0x00FF) + 20;
- 
-    if (b > 255) b = 255;
+
+    var b = ((num >> 8) & 0x00FF) + amount;
+
+    if ( b > 255 ) b = 255;
     else if  (b < 0) b = 0;
- 
-    let g = (num & 0x0000FF) + 20;
- 
-    if (g > 255) g = 255;
-    else if (g < 0) g = 0;
- 
+
+    var g = (num & 0x0000FF) + amount;
+
+    if ( g > 255 ) g = 255;
+    else if  ( g < 0 ) g = 0;
+
     return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
 }
 
@@ -208,6 +222,20 @@ function resetStyles() {
     tabs.style.backgroundColor = 'rgb(216, 216, 216)'
     displayMenu.style.backgroundColor = 'rgb(177, 177, 177)'
     addTabButton.style.backgroundColor = 'rgb(216, 216, 216)'
+
+    let errorBox = document.querySelector('.font-error')
+    errorBox.style.opacity = 0
+    errorBox.style.top = '-5%'
+
+    let allTabs =  document.querySelectorAll('#tabs li')
+    allTabs.forEach(elem => {
+        if (!(elem == document.querySelector('.highlighted'))) {
+            elem.style.backgroundColor = 'rgb(216, 216, 216)'
+        } else {
+            elem.style.backgroundColor = 'rgb(177, 177, 177)'
+        }
+    })
+    
 }
 
 // RANDOM STYLING

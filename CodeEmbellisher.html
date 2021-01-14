@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="./CodeEmbellisher.css">
+        <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css"> -->
         <title>Code Embellisher Home Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,7 +91,7 @@
 
                 <div id="display-tabs">
                     <ul id="tabs">
-                        <li>Tab 1</li>
+                        <li class="highlighted">Tab 1</li>
                         <button id="new-tab" onclick='addTab()'>+</button>
                     </ul>
                 </div>
@@ -102,12 +103,53 @@
             </div>
 
             <div id="output">
-                <h5>DELETE THIS LATER</h5>
+                
             </div>
+
+            <div class="about-card-container">
+                <div class="about-card-wrapper">
+                    <div class="about-card">
+                        <div class="front">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                        <div class="back">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card-wrapper">
+                    <div class="about-card">
+                        <div class="front">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                        <div class="back">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card-wrapper">
+                    <div class="about-card">
+                        <div class="front">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                        <div class="back">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <pre>
+                <code contenteditable="true" class="javascript">
+                    console.log('hello')
+                </code>
+            </pre> -->
 
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> 
+        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> -->
         <script src="./CodeEmbellisher.js"></script>
     </body>
 </html>
