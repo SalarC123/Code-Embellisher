@@ -1,0 +1,427 @@
+/* DEFAULT PAGE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');
+
+/* FONT FAMILIES */
+@import url(//db.onlinewebfonts.com/c/9f94dc20bb2a09c15241d3a880b7ad01?family=Menlo);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+// VARIABLES
+
+$opacity: 0.8;
+$back-dark-green: #2CA98B;
+$back-light-green: #6BC971;
+$card-width: 300px;
+$card-height: 500px;
+
+// FUNCTIONS
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to bottom,$back-dark-green,$back-light-green);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Noto Serif SC;
+}
+
+
+#navbar-items {
+    @include flex(row, flex-end, center);
+    margin-top: 0rem;
+    padding: 0.5rem 0rem;
+    background-color: $back-dark-green;
+    list-style-type: none;
+
+    a {
+        text-decoration: none;
+        color:white;
+    }
+}
+
+#logo {
+    margin-right: auto;
+    margin-left: 2rem;
+    font-size: 2.5rem;
+}
+
+.navbar-link {
+    margin-right: 3rem;
+    font-size: 2.5rem;
+}
+
+.hamburger {
+    display: none;
+    margin-right: 3rem;
+    z-index: 6;
+
+    img {
+        width: 45px;
+        margin-top: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+            opacity: $opacity;
+        }
+    }
+}
+
+.hamburger-display {
+    @include flex(column, space-around, center);
+    position: absolute;
+    width: 100%;
+    height:40vh;
+    background-color:$back-dark-green;
+    z-index: 5;
+    top: -50%;
+    transition: top 1s ease-out;
+
+    a {
+        text-decoration:none;
+        font-size: 30px;
+        color: white;
+        margin:1rem 0;
+    }
+
+    &.opened {
+        display: flex;
+        top: 0%;
+    }
+}
+
+@media screen and (max-width:812px) {
+    .navbar-link {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+}
+
+
+/* #content-wrapper {
+    position: absolute;
+    width: 95vw;
+    height: 91vh;
+    top:52%;
+    left:50%;
+    transform: translate(-50%,-50%);
+} */
+
+
+
+.customizations {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    border: 5px solid white;
+    margin: 1rem 1rem;
+    /* perspective: 500; */
+}
+
+label {
+    font-size: 1.5em;
+    color: whitesmoke;
+    letter-spacing: 0.05em;
+}
+
+#tab-color {
+    width: 50px;
+    height: 50px;
+    margin: 1rem 1rem;
+}
+
+.theme-wrapper {
+    @include flex(column, center, center);
+}
+
+.themes,.font-families {
+    font-size: 13px;
+    width: 100%;
+    -webkit-appearance: none;
+    padding: 4px;
+    border: 4px solid rgb(245,245,245);
+}
+
+.show-hide-tabs {
+    @include flex(column, initial, initial);
+    margin: 1rem 1rem;
+    text-align: center;
+
+    button {
+        background-color: white;
+        padding: 4px;
+        border: 4px solid rgb(245,245,245);
+        margin: 0.2rem;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: $opacity;
+        }
+    }
+}
+
+.font, .reset, .randomize, .download {
+    @include flex(column, initial, center);
+    margin: 1rem 1rem;
+    text-align: center;
+
+    button {
+        border: 4px solid rgb(245,245,245);
+        background-color: white;
+        border-radius: 5px;
+        padding: 5px;
+        width: 20%;
+        cursor: pointer;
+
+        &:hover {
+            opacity: $opacity;
+        }
+    }
+}
+
+.reset img {
+    width: 80%;
+    height: 80%;
+}
+
+.randomize img {
+    width:100%;
+}
+
+.download img {
+    width: 100%;
+}
+
+.font input {
+    font-size: 15px;
+    padding: 2px;
+    border: 4px solid whitesmoke;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+.font-error {
+    position: absolute;
+    top:-5%;
+    font-size: 15px;
+    color: white;
+    background-color: red;
+    padding: 10px;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+
+#display-screen {
+    display: inline-block;
+    position: relative;
+    background-color: whitesmoke;
+    max-width: 95vw;
+    min-width: 300px;
+    margin-left: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    // transition: transform 1s ease-out; 
+
+    &:hover {
+        // transform: rotateZ(45deg) skew(45deg); 
+        // transition: transform 0.5s ease-in; 
+    }
+}
+
+.cloned {
+    position: absolute;
+    top:0rem;
+    display: none;
+}
+
+#display-menu {
+    @include flex(row, initial, initial);
+    position: relative;
+    background-color: rgb(177, 177, 177);
+    width: 100%;
+    height: 30px;
+}
+
+.menu-circles {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    margin: 8px 5px;
+    border-radius: 50px;
+
+    &:first-child {
+        background-color: red;
+    }
+
+    &:nth-child(2) {
+        background-color: orange;
+    }
+
+    &:nth-child(3) {
+        background-color: rgb(1, 201, 1);
+    }
+}
+
+#tabs {
+    @include flex(row, initial, center);
+    list-style: none;
+    background-color: rgb(216, 216, 216);
+
+    li {
+        flex: 1;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        // &::after {
+        //     content: 'X';
+        //     margin-left: 20px;
+        // }
+    }
+
+    button {
+        margin-right: 7px;
+        border: none;
+        font-size: 20px;
+        margin-bottom: 7px;
+        background-color: rgb(216, 216, 216);
+
+        &:active {
+            color: rgb(142, 142, 142);
+        }
+    }
+    
+    #new-tab {
+        padding-left: .4rem;
+    }
+}
+
+/* .highlighted {
+    background-color: gray;
+} */
+
+#display-content {
+    margin: 1rem;
+}
+
+.main-input {
+    position: relative;
+    border: none;
+    background-color: whitesmoke;
+    outline: none;
+    resize: horizontal;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-family: Menlo;
+    min-width: 300px;
+    max-width: 93vw;
+}
+
+#output {
+    margin: 0.5rem;
+
+    canvas {
+        margin: 0.5rem
+    }
+}
+
+.about-card-container {
+    @include flex(row, space-around, center); // SWITCH TO GRID
+    margin: 1rem;
+    flex-wrap: wrap;
+
+    .about-card-wrapper {
+        width: 320px;
+        height: 520px;
+        @include flex(row, center, center);
+
+        &:hover .about-card{
+            transform: rotateY(180deg);
+        }
+
+        .about-card {
+            width: $card-width;
+            height: $card-height;
+            transition: transform 1s ease;
+            transform-style: preserve-3d;
+            margin: 1rem;
+
+            .front {
+                width: $card-width;
+                height: $card-height;
+                background-color: white;
+                backface-visibility: hidden;
+                z-index: 100;
+                text-align: center;
+                border-radius: 30px;
+                border: 5px solid white;
+                background-image: linear-gradient(225deg, $back-light-green,$back-dark-green);
+                color: whitesmoke;
+            }
+
+            .back {
+                @extend .front;
+                transform: rotateY(180deg);
+                position: absolute;
+                top:0%;
+                z-index: -100;
+            }
+        }
+    }
+}
+
+/* ---- TODO LIST ---- */
+
+// FLIPPABLE CARD ON NEW PAGE (HIGHWAY JS)
+// FLIPPABLE CARD TEXT
+
+/* CHANGE IDS TO CLASSES */
+/* SKEW EFFECT */
+/* SCSS LOOPS + VARIABLES */
+/* KEYFRAMES ANIMATION */
+/* ADJUST TEXT AND MARGIN SIZES */
+/* CHANGE UP CUSTOMIZATIONS BOX */
+
+/* LOCALSTORAGE */
+/* THREE JS */
+/* WEBPACK */
+
+/* RENAME PROJECT */
+/* README - WHAT PACKAGES TO INSTALL WITH NPM (HTML2CANVAS) */
+/* DELETE DOMTOIMAGE FROM PACKAGESJSON */
+/* TEST ON OTHER BROWSERS */
+
+/* ADD TO THEMES.JSON  */
+/* ADD MORE FONTS */
+/* FIX THEME COLORS IN JSON FILE */
+
+/* HIGHLIGHTJS OR PRISMJS */
+/* WHICH LANGUAGE (FOR SYNTAX STYLING) */
+
+/* TAB NAMES??? */
+// DELTE TABS BUTTON
+
+/* STYLE "SELECT" TAGS */
+/* RANDOMIZE DESIGN */
+
+/* DOWNLOAD PICTURE OR VIDEO */
+/* RECORD VIDEO OF KEYSTROKES */
