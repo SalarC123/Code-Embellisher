@@ -11,7 +11,9 @@ let displayContent = document.querySelector('#display-content')
 let footerCopyright = document.querySelector('footer p:last-child')
 
 // Changes copyright year to the current year
-footerCopyright.innerText += ' ' + new Date().toLocaleDateString('en-us').slice(-4)
+window.addEventListener('load', () => {
+    footerCopyright.innerText += ' ' + new Date().toLocaleDateString('en-us').slice(-4)
+})
 
 
 // Give main tab the highlighted effect
@@ -20,13 +22,14 @@ firstTab.style.backgroundColor = tabColorInput.value
 
 // EXPAND ROW + DIV SIZE WHEN TYPING
 
-let currentInput = input; // use this for changing font size and family in other parts of the code
+let currentInput = input;
 let currentTab = tabs.children[0]
 
 function adjustBoxSize(elem = currentInput) {
     elem.style.height = "1px";
     elem.style.height = (elem.scrollHeight)+"px"
 }
+window.adjustBoxSize = adjustBoxSize;
 
 // ADD NEW TAB ON BUTTON CLICK
 
@@ -55,6 +58,7 @@ function addTab() {
         displayContent.appendChild(clonedInput)
     }
 }
+window.addTab = addTab;
 
 // CHANGE TAB ON CLICK
 
@@ -67,7 +71,7 @@ tabs.addEventListener('click', (e) => {
         highlightedTab.classList.remove('highlighted')
         highlightedTab.style.backgroundColor = addTabButton.style.backgroundColor
         e.target.classList.add('highlighted')
-        e.target.style.backgroundColor = tabColorInput.value
+        e.target.style.backgroundColor = displayMenu.style.backgroundColor
 
         // removes all other textareas from view
         Array.from(document.querySelectorAll('textarea')).forEach(function (elem) {
@@ -149,6 +153,7 @@ function lightenOrDarkenColor(color, amount) {
 
     return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
 }
+window.lightenOrDarkenColor = lightenOrDarkenColor
 
 
 // LISTEN FOR "TAB" BUTTON WHILE IN THE TEXT EDITOR
@@ -162,6 +167,13 @@ function lightenOrDarkenColor(color, amount) {
 //     }
 // })
 
+
+// SHOW NAVBAR LINKS THAT WERE HIDDEN DURING WINDOW RESIZE
+
+function openHamburgerMenu() {
+    document.querySelector('.hamburger-display').classList.toggle('opened')
+}
+window.openHamburgerMenu = openHamburgerMenu;
 
 // CHANGE THEME 
 
@@ -187,10 +199,12 @@ themes.addEventListener('change', (e) => {
 function showTabs() {
     tabs.style.display = 'flex'
 }
+window.showTabs = showTabs;
 
 function hideTabs() {
     tabs.style.display = 'none'
 }
+window.hideTabs = hideTabs;
 
 
 // CHANGE FONT SIZE
@@ -243,8 +257,8 @@ function resetStyles() {
             elem.style.backgroundColor = 'rgb(177, 177, 177)'
         }
     })
-    
 }
+window.resetStyles = resetStyles;
 
 // DOWNLOAD PICTURE
 
@@ -265,13 +279,7 @@ function download () {
     )
     // randomDiv.replaceWith(input)
 }
-
-
-// SHOW NAVBAR LINKS THAT WERE HIDDEN DURING WINDOW RESIZE
-
-function openHamburgerMenu() {
-    document.querySelector('.hamburger-display').classList.toggle('opened')
-}
+window.download = download;
 
 
 // fetch('https://reqres.in/api/users', {
