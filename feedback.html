@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./CodeEmbellisher.css">
+        <title>Feedback</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <nav>
+            <ul id="navbar-items">
+                <li id="logo"><a href="./CodeEmbellisher.html">LOGO</a></li>
+                <li class="hamburger" onclick="openHamburgerMenu()"><img src="./Images/hamburger.png" alt="Hamburger Menu"></li>
+                <li class="navbar-link"><a href="./CodeEmbellisher.html">Home</a></li>
+                <li class="navbar-link"><a href="./about.html">About</a></li>
+                <li class="navbar-link"><a href="./feedback.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger-display">
+            <a href="./CodeEmbellisher.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./feedback.html">Contact</a>
+        </div>
+
+        <section class='feedback-section'>
+            <h1>Leave Feedback</h1>
+            <textarea oninput="adjustBoxSize()" name="" class='feedback-text' cols="30" rows="10"></textarea>
+            <input type="submit" value="Send Message" onclick="sendMessage()">
+        </section>
+
+        <footer>
+            <p>All Rights Reserved</p>
+            <p>Salar Cheema</p>
+            <p>Copyright</p>
+        </footer>
+
+    </body>
+</html>
