@@ -1,5 +1,7 @@
 # Novus
 
+[Try it out](https://novus.netlify.app/novus)
+
 ![Demo 1](./Images/demo1.png)
 
 ![Demo 2](./Images/demo2.png)
