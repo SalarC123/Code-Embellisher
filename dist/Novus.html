@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./Novus.css">
+        <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css"> -->
+        <title>Novus Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="bundle.js"></script></head>
+    <body>
+
+        <nav>
+            <ul id="navbar-items">
+                <li id="logo"><a href="./Novus.html">LOGO</a></li>
+                <li class="hamburger" onclick="openHamburgerMenu()"><img src="./Images/hamburger.png" alt="Hamburger Menu"></li>
+                <li class="navbar-link"><a href="./Novus.html">Home</a></li>
+                <li class="navbar-link"><a href="./about.html">About</a></li>
+                <li class="navbar-link"><a href="./feedback.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger-display">
+            <a href="./Novus.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./feedback.html">Contact</a>
+        </div>
+
+        <header>
+            <img src="./Images/main.png" alt="Main Image">
+            <pre>Novus is a tool for aesthetically displaying your code</pre>
+            <button><a href="./about.html">Learn More</a></button>
+            <button><a href="./feedback.html">Leave Feedback</a></button>
+        </header>
+
+        <div id="content-wrapper">
+
+            <div class="customizations">
+
+                <input type="color" id='tab-color' value="#b1b1b1">
+
+                <div class="theme-wrapper">
+                    <label>THEMES</label>
+                    <select class="themes">
+                        <option value="None">None</option>
+                        <option value="One Dark">One Dark</option>
+                        <option value="Monokai">Monokai</option>
+                        <option value="Tomorrow Night Blue">Tomorrow Night Blue</option>
+                        <option value="Quiet Light">Quiet Light</option>
+                        <option value="Abyss">Abyss</option>
+                        <option value="Red">Red</option>
+                        <option value="Solarized Dark">Solarized Dark</option>
+                    </select>
+                </div>
+
+                <div class="show-hide-tabs">
+                    <label for="">TAB VISIBILITY</label>
+                    <button onclick="showTabs()">SHOW TABS</button>
+                    <button onclick="hideTabs()">HIDE TABS</button>
+                </div>
+
+                <div class="font">
+                    <label for="">FONT</label>
+                    <input type="number" name="Font" placeholder="Enter Size">
+                    <select name="" class="font-families">
+                        <option value="Menlo">Menlo</option>
+                        <option value="Poppins">Poppins</option>
+                        <option value="Yellowtail">Yellowtail</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Fira Mono">Fira Mono</option>
+                    </select>
+                    <div class="font-error">FONT SIZE MUST BE BETWEEN 10 AND 50</div>
+                </div>
+
+                <div class="reset">
+                    <label for="">RESET STYLE</label>
+                    <button onclick="resetStyles()"><img src="./Images/reset.png" alt="Reset"></button>
+                </div>
+
+                <div class="download">
+                    <label for="">DOWNLOAD</label>
+                    <button onclick="download()"><img src="./Images/download.png" alt="Download"></button>
+                </div>
+
+            </div>
+
+            <div id="display-screen">
+
+                <div id="display-menu">
+                    <div class="menu-circles"></div>
+                    <div class="menu-circles"></div>
+                    <div class="menu-circles"></div>
+                </div>
+
+                <div id="display-tabs">
+                    <ul id="tabs">
+                        <li class="highlighted">Tab 1</li>
+                        <button id="new-tab" onclick='addTab()'>+</button>
+                    </ul>
+                </div>
+
+                <div id="display-content">
+                    <textarea oninput="adjustBoxSize()" class="main-input" name="" rows="8" cols="20" spellcheck="false"></textarea>
+                </div>
+
+            </div>
+
+            <div id="output"></div>
+
+            <!-- <pre>
+                <code contenteditable="true" class="javascript">
+                    console.log('hello')
+                </code>
+            </pre> -->
+
+        </div>
+
+        <footer>
+            <p>All Rights Reserved</p>
+            <p>Salar Cheema</p>
+            <p>Copyright</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> 
+        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> -->
+    </body>
+</html>

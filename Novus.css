@@ -1,0 +1,615 @@
+/* DEFAULT PAGE FONT */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap");
+/* FONT FAMILIES */
+@import url(//db.onlinewebfonts.com/c/9f94dc20bb2a09c15241d3a880b7ad01?family=Menlo);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&family=Yellowtail&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: cornflowerblue;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Noto Serif SC;
+}
+
+#navbar-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 0rem;
+  padding: 0.5rem 0rem;
+  list-style-type: none;
+  -webkit-box-shadow: 0px 5px 20px #2c65ce;
+          box-shadow: 0px 5px 20px #2c65ce;
+}
+
+#navbar-items a {
+  text-decoration: none;
+  color: white;
+}
+
+#logo {
+  margin-right: auto;
+  margin-left: 2rem;
+  font-size: 2.5rem;
+}
+
+.navbar-link {
+  margin-right: 3rem;
+  font-size: 2.5rem;
+}
+
+.hamburger {
+  display: none;
+  margin-right: 3rem;
+  z-index: 6;
+}
+
+.hamburger img {
+  width: 45px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.hamburger img:hover {
+  opacity: 0.8;
+}
+
+.hamburger-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  height: 40vh;
+  background-color: #4f85e9;
+  z-index: 5;
+  top: -500px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+}
+
+.hamburger-display a {
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+  margin: 1rem 0;
+}
+
+.hamburger-display.opened {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0%;
+}
+
+@media screen and (max-width: 812px) {
+  .navbar-link {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem 0rem;
+  width: calc(100% - 2rem);
+}
+
+header pre {
+  color: white;
+  margin: 0.5rem;
+  font-size: 20px;
+  font-family: Noto Serif SC;
+}
+
+header button {
+  padding: 8px;
+  font-size: 20px;
+  font-family: Noto Serif SC;
+  background-color: cornflowerblue;
+  border: 3px solid white;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: #5186e8;
+}
+
+header button a {
+  text-decoration: none;
+  color: white;
+}
+
+#content-wrapper {
+  border-radius: 20px;
+  margin-left: 0.5rem;
+  position: absolute;
+  background-color: #4f85e9;
+  width: calc(100% - 1rem);
+}
+
+.customizations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1rem 0rem;
+}
+
+label {
+  font-size: 1.5em;
+  color: whitesmoke;
+  letter-spacing: 0.05em;
+}
+
+#tab-color {
+  width: 50px;
+  height: 50px;
+  margin: 1rem 1rem;
+}
+
+.theme-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.themes, .font-families {
+  font-size: 13px;
+  width: 100%;
+  -webkit-appearance: none;
+  padding: 4px;
+  border: 4px solid whitesmoke;
+}
+
+.show-hide-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  margin: 0rem 0.5rem;
+  text-align: center;
+}
+
+.show-hide-tabs button {
+  background-color: white;
+  padding: 4px;
+  border: 4px solid whitesmoke;
+  margin: 0.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.show-hide-tabs button:hover {
+  opacity: 0.8;
+}
+
+.font, .reset, .download {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  text-align: center;
+}
+
+.font button, .reset button, .download button {
+  border: 4px solid whitesmoke;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  width: 20%;
+  cursor: pointer;
+}
+
+.font button:hover, .reset button:hover, .download button:hover {
+  opacity: 0.8;
+}
+
+.reset img {
+  width: 80%;
+  height: 80%;
+}
+
+.download img {
+  width: 100%;
+}
+
+.font input {
+  font-size: 15px;
+  padding: 2px;
+  border: 4px solid whitesmoke;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+.font-error {
+  position: absolute;
+  top: -120%;
+  font-size: 15px;
+  color: white;
+  background-color: red;
+  padding: 10px;
+  opacity: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#display-screen {
+  display: inline-block;
+  position: relative;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  max-width: calc(100% - 2rem);
+  min-width: 275px;
+  overflow: hidden;
+  margin: 0.5rem 1rem;
+}
+
+.cloned {
+  position: absolute;
+  top: 0rem;
+  display: none;
+}
+
+#display-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  position: relative;
+  background-color: #b1b1b1;
+  width: 100%;
+  height: 30px;
+}
+
+.menu-circles {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  margin: 8px 5px;
+  border-radius: 50px;
+}
+
+.menu-circles:first-child {
+  background-color: red;
+}
+
+.menu-circles:nth-child(2) {
+  background-color: orange;
+}
+
+.menu-circles:nth-child(3) {
+  background-color: #01c901;
+}
+
+#tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  list-style: none;
+  background-color: #d8d8d8;
+}
+
+#tabs li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#tabs button {
+  margin-right: 7px;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 7px;
+  background-color: #d8d8d8;
+}
+
+#tabs button:active {
+  color: #8e8e8e;
+}
+
+#tabs #new-tab {
+  padding-left: .4rem;
+}
+
+#display-content {
+  margin: 1rem;
+}
+
+.main-input {
+  position: relative;
+  border: none;
+  background-color: whitesmoke;
+  outline: none;
+  resize: horizontal;
+  font-size: 18px;
+  font-family: Menlo;
+  min-width: 275px;
+  max-width: calc(100% - 0.5rem);
+}
+
+#output {
+  margin: 0.5rem;
+}
+
+#output canvas {
+  margin: 0.5rem;
+}
+
+.about-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.about-card-container .about-card-wrapper {
+  width: 320px;
+  height: 520px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about-card-container .about-card-wrapper:hover .about-card {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.about-card-container .about-card-wrapper .about-card {
+  width: 300px;
+  height: 500px;
+  -webkit-transition: -webkit-transform 1s ease;
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  margin: 1rem;
+}
+
+.about-card-container .about-card-wrapper .about-card .front, .about-card-container .about-card-wrapper .about-card .back {
+  width: 300px;
+  height: 500px;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: 100;
+  text-align: center;
+  border-radius: 30px;
+  border: 5px solid white;
+  background-color: #5082df;
+  color: whitesmoke;
+}
+
+.about-card-container .about-card-wrapper .about-card .back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  position: absolute;
+  top: 0%;
+  z-index: -100;
+}
+
+.feedback-section {
+  margin: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.feedback-section h1 {
+  color: white;
+  margin: 0.5rem;
+  font-size: 3em;
+}
+
+.feedback-section textarea {
+  border: none;
+  background-color: whitesmoke;
+  outline: none;
+  resize: horizontal;
+  font-size: 18px;
+  font-family: sans-serif;
+  min-width: 275px;
+  max-width: 100%;
+  margin: 0.5rem;
+  padding: 5px;
+}
+
+.feedback-section input {
+  margin: 0.5rem;
+  color: white;
+  padding: 8px;
+  font-size: 20px;
+  font-family: Noto Serif SC;
+  background-color: cornflowerblue;
+  border: 3px solid white;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.feedback-section input:hover {
+  background-color: #5186e8;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: cornflowerblue;
+  -webkit-box-shadow: 0px 5px 20px #2c65ce;
+          box-shadow: 0px 5px 20px #2c65ce;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+footer p {
+  color: white;
+  padding: 20px;
+}
+
+/* ---- TODO LIST ---- */
+/* LOCALSTORAGE */
+/* README */
+/* ADD TO THEMES.JSON  */
+/* ADD MORE FONTS */
+/* FIX THEME COLORS IN JSON FILE */
+/* HIGHLIGHTJS OR PRISMJS */
+/* WHICH LANGUAGE (FOR SYNTAX STYLING) */
+/* TAB NAMES??? */
+/* STYLE "SELECT" TAGS */
+/* DOWNLOAD PICTURE OR VIDEO */
+/* RECORD VIDEO OF KEYSTROKES */
+/*# sourceMappingURL=Novus.css.map */
