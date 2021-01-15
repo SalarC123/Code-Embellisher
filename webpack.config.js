@@ -3,15 +3,15 @@ const path = require('path')
 
 module.exports = {
     mode: 'development',
-    entry: './CodeEmbellisher.js',
+    entry: './Novus.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'CodeEmbellisher.html',
-            template: './CodeEmbellisher.html'
+            filename: 'Novus.html',
+            template: './Novus.html'
         }),
         new HtmlWebpackPlugin({
             filename: 'about.html',
