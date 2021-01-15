@@ -9,6 +9,8 @@ let tabColorInput = document.querySelector('#tab-color')
 let themes = document.querySelector('.themes')
 let displayContent = document.querySelector('#display-content')
 
+
+
 // Give main tab the highlighted effect
 let firstTab = document.querySelector('#tabs li:first-child')
 firstTab.style.backgroundColor = tabColorInput.value
@@ -33,7 +35,7 @@ function addTab() {
 
         // Add name
         answer = prompt('Tab Name')
-        if (answer) {  
+        if (answer && answer.length < 45) {  
             newLi.innerHTML = answer                 // ADD FUNCTION TO CHANGE FIRST TAB
             tabs.insertBefore(newLi, addTabButton)
             numOfTabs++
@@ -93,7 +95,6 @@ buttonsWithOutlines = [
     document.querySelector('.show-hide-tabs button:nth-child(3)'),
     document.querySelector('.font input'),
     document.querySelector('.reset button'),
-    document.querySelector('.randomize button'),
     document.querySelector('.font-families'),
     document.querySelector('.download button')
 ]
@@ -102,6 +103,10 @@ tabColorInput.addEventListener('change', (e) => {
     tabColor = e.target.value
     newTabColor = lightenOrDarkenColor(tabColor, 20)
     displayMenu.style.backgroundColor = tabColor
+    let tabsLi = document.querySelectorAll('#tabs li')
+    tabsLi.forEach(elem => {
+        elem.style.backgroundColor = lightenOrDarkenColor(tabColor, 20)
+    })
     
     let highlightedTab = document.querySelector('.highlighted')
     highlightedTab.style.backgroundColor = tabColor
@@ -225,7 +230,7 @@ function resetStyles() {
 
     let errorBox = document.querySelector('.font-error')
     errorBox.style.opacity = 0
-    errorBox.style.top = '-5%'
+    errorBox.style.top = '0%'
 
     let allTabs =  document.querySelectorAll('#tabs li')
     allTabs.forEach(elem => {
@@ -238,14 +243,6 @@ function resetStyles() {
     
 }
 
-// RANDOM STYLING
-
-function randomize() {
-    // change - color,theme,fontSize,fontFamily
-    let randomRGB = `rgb(${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1}, ${Math.floor(Math.random()*255) + 1})`
-
-}
-
 // DOWNLOAD PICTURE
 
 function download () { 
@@ -256,7 +253,11 @@ function download () {
     // input.replaceWith(randomDiv)
     html2canvas(displayScreen, {backgroundColor:null}).then( 
         function (canvas) { 
-            document.getElementById('output').appendChild(canvas)
+            let link = document.createElement("a");
+			link.download = "code.png";
+			link.href = canvas.toDataURL("image/png");
+			link.target = '_blank';
+			link.click();
         }
     )
     // randomDiv.replaceWith(input)

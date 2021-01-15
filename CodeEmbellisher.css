@@ -13,8 +13,7 @@
 }
 
 body {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#2CA98B), to(#6BC971));
-  background-image: linear-gradient(to bottom, #2CA98B, #6BC971);
+  background-color: cornflowerblue;
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: Noto Serif SC;
@@ -36,8 +35,9 @@ body {
           justify-content: flex-end;
   margin-top: 0rem;
   padding: 0.5rem 0rem;
-  background-color: #2CA98B;
   list-style-type: none;
+  -webkit-box-shadow: 0px 5px 20px #2c65ce;
+          box-shadow: 0px 5px 20px #2c65ce;
 }
 
 #navbar-items a {
@@ -118,14 +118,59 @@ body {
   }
 }
 
-/* #content-wrapper {
-    position: absolute;
-    width: 95vw;
-    height: 91vh;
-    top:52%;
-    left:50%;
-    transform: translate(-50%,-50%);
-} */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 3rem 0rem;
+  width: calc(100% - 2rem);
+}
+
+header pre {
+  color: white;
+  margin: 0.5rem;
+  font-size: 20px;
+  font-family: Noto Serif SC;
+}
+
+header button {
+  padding: 8px;
+  font-size: 20px;
+  font-family: Noto Serif SC;
+  background-color: cornflowerblue;
+  border: 3px solid white;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: #5186e8;
+}
+
+header button a {
+  text-decoration: none;
+  color: white;
+}
+
+#content-wrapper {
+  border-radius: 20px;
+  margin-left: 0.5rem;
+  position: absolute;
+  background-color: #4f85e9;
+  width: calc(100% - 1rem);
+}
+
 .customizations {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -134,16 +179,15 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border: 5px solid white;
-  margin: 1rem 1rem;
+  margin: 1rem 0rem;
   /* perspective: 500; */
 }
 
@@ -197,7 +241,7 @@ label {
   -webkit-box-pack: initial;
       -ms-flex-pack: initial;
           justify-content: initial;
-  margin: 1rem 1rem;
+  margin: 0rem 0.5rem;
   text-align: center;
 }
 
@@ -214,7 +258,7 @@ label {
   opacity: 0.8;
 }
 
-.font, .reset, .randomize, .download {
+.font, .reset, .download {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -228,11 +272,10 @@ label {
   -webkit-box-pack: initial;
       -ms-flex-pack: initial;
           justify-content: initial;
-  margin: 1rem 1rem;
   text-align: center;
 }
 
-.font button, .reset button, .randomize button, .download button {
+.font button, .reset button, .download button {
   border: 4px solid whitesmoke;
   background-color: white;
   border-radius: 5px;
@@ -241,17 +284,13 @@ label {
   cursor: pointer;
 }
 
-.font button:hover, .reset button:hover, .randomize button:hover, .download button:hover {
+.font button:hover, .reset button:hover, .download button:hover {
   opacity: 0.8;
 }
 
 .reset img {
   width: 80%;
   height: 80%;
-}
-
-.randomize img {
-  width: 100%;
 }
 
 .download img {
@@ -268,7 +307,7 @@ label {
 
 .font-error {
   position: absolute;
-  top: -5%;
+  top: -120%;
   font-size: 15px;
   color: white;
   background-color: red;
@@ -282,11 +321,11 @@ label {
   display: inline-block;
   position: relative;
   background-color: whitesmoke;
-  max-width: 95vw;
-  min-width: 300px;
-  margin-left: 20px;
   border-radius: 10px;
+  max-width: calc(100% - 2rem);
+  min-width: 275px;
   overflow: hidden;
+  margin: 0.5rem 1rem;
 }
 
 .cloned {
@@ -398,8 +437,8 @@ label {
   font-size: 18px;
   font-family: sans-serif;
   font-family: Menlo;
-  min-width: 300px;
-  max-width: 93vw;
+  min-width: 275px;
+  max-width: calc(100% - 2rem);
 }
 
 #output {

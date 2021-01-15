@@ -25,6 +25,13 @@
             <a href="#">Contact</a>
         </div>
 
+        <header>
+            <img src="./Images/main.png" alt="Main Image">
+            <pre>Code Embellisher is a tool for aesthetically displaying your code</pre>
+            <button><a href="">Learn More</a></button>
+            <button><a href="">Feedback</a></button>
+        </header>
+
         <div id="content-wrapper">
 
             <div class="customizations">
@@ -69,11 +76,6 @@
                     <button onclick="resetStyles()"><img src="./Images/reset.png" alt="Reset"></button>
                 </div>
 
-                <div class="randomize">
-                    <label for="">RANDOMIZE STYLE</label>
-                    <button onclick="randomize()"><img src="./Images/dice.png" alt="Dice"></button>
-                </div>
-
                 <div class="download">
                     <label for="">DOWNLOAD</label>
                     <button onclick="download()"><img src="./Images/download.png" alt="Download"></button>
@@ -97,47 +99,12 @@
                 </div>
 
                 <div id="display-content">
-                    <textarea oninput="adjustBoxSize()" class="main-input" name="" rows="8" cols="23" spellcheck="false"></textarea>
+                    <textarea oninput="adjustBoxSize()" class="main-input" name="" rows="8" cols="20" spellcheck="false"></textarea>
                 </div>
 
             </div>
 
-            <div id="output">
-                
-            </div>
-
-            <div class="about-card-container">
-                <div class="about-card-wrapper">
-                    <div class="about-card">
-                        <div class="front">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                        <div class="back">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </div>
-                <div class="about-card-wrapper">
-                    <div class="about-card">
-                        <div class="front">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                        <div class="back">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </div>
-                <div class="about-card-wrapper">
-                    <div class="about-card">
-                        <div class="front">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                        <div class="back">
-                            Lorem ipsum dolor sit amet.
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="output"></div>
 
             <!-- <pre>
                 <code contenteditable="true" class="javascript">
@@ -146,6 +113,39 @@
             </pre> -->
 
         </div>
+
+        <!-- <div class="about-card-container">
+            <div class="about-card-wrapper">
+                <div class="about-card">
+                    <div class="front">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                    <div class="back">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+            </div>
+            <div class="about-card-wrapper">
+                <div class="about-card">
+                    <div class="front">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                    <div class="back">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+            </div>
+            <div class="about-card-wrapper">
+                <div class="about-card">
+                    <div class="front">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                    <div class="back">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+            </div>
+        </div> -->
 
         <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> 
         <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>

@@ -32,19 +32,19 @@ $card-height: 500px;
 }
 
 body {
-    background-image: linear-gradient(to bottom,$back-dark-green,$back-light-green);
+    // background-image: linear-gradient(to bottom,$back-dark-green,$back-light-green);
+    background-color: cornflowerblue;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: Noto Serif SC;
 }
 
-
 #navbar-items {
     @include flex(row, flex-end, center);
     margin-top: 0rem;
     padding: 0.5rem 0rem;
-    background-color: $back-dark-green;
     list-style-type: none;
+    box-shadow: 0px 5px 20px rgb(44, 101, 206);
 
     a {
         text-decoration: none;
@@ -111,23 +111,54 @@ body {
     }
 }
 
+header {
+    @include flex(column, center, center);
+    margin: 3rem 0rem;
+    width: calc(100% - 2rem);
+    // height: 100px;
 
-/* #content-wrapper {
+    pre {
+        color: white;
+        margin: 0.5rem;
+        font-size: 20px;
+        font-family: Noto Serif SC;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 20px;
+        font-family: Noto Serif SC;
+        background-color: cornflowerblue;
+        border: 3px solid white;
+        border-radius: 15px;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(81, 134, 232);
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
+
+#content-wrapper {
+    border-radius: 20px;
+    margin-left: 0.5rem;
     position: absolute;
-    width: 95vw;
-    height: 91vh;
-    top:52%;
-    left:50%;
-    transform: translate(-50%,-50%);
-} */
-
+    background-color: rgb(79, 133, 233);
+    width: calc(100% - 1rem)
+}
 
 
 .customizations {
-    @include flex(row, center, center);
+    @include flex(row, space-evenly, flex-start);
     flex-wrap: wrap;
-    border: 5px solid white;
-    margin: 1rem 1rem;
+    margin: 1rem 0rem;
     /* perspective: 500; */
 }
 
@@ -157,7 +188,7 @@ label {
 
 .show-hide-tabs {
     @include flex(column, initial, initial);
-    margin: 1rem 1rem;
+    margin: 0rem 0.5rem;
     text-align: center;
 
     button {
@@ -174,9 +205,8 @@ label {
     }
 }
 
-.font, .reset, .randomize, .download {
+.font, .reset, .download {
     @include flex(column, initial, center);
-    margin: 1rem 1rem;
     text-align: center;
 
     button {
@@ -198,10 +228,6 @@ label {
     height: 80%;
 }
 
-.randomize img {
-    width:100%;
-}
-
 .download img {
     width: 100%;
 }
@@ -216,7 +242,7 @@ label {
 
 .font-error {
     position: absolute;
-    top:-5%;
+    top:-120%;
     font-size: 15px;
     color: white;
     background-color: red;
@@ -230,11 +256,11 @@ label {
     display: inline-block;
     position: relative;
     background-color: whitesmoke;
-    max-width: 95vw;
-    min-width: 300px;
-    margin-left: 20px;
     border-radius: 10px;
+    max-width: calc(100% - 2rem);
+    min-width: 275px;
     overflow: hidden;
+    margin: 0.5rem 1rem;
     // transition: transform 1s ease-out; 
 
     &:hover {
@@ -332,8 +358,8 @@ label {
     font-size: 18px;
     font-family: sans-serif;
     font-family: Menlo;
-    min-width: 300px;
-    max-width: 93vw;
+    min-width: 275px;
+    max-width: calc(100% - 2rem);
 }
 
 #output {
