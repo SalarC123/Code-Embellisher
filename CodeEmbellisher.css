@@ -132,7 +132,7 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 3rem 0rem;
+  margin: 1rem 0rem;
   width: calc(100% - 2rem);
 }
 
@@ -188,7 +188,6 @@ header button a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 1rem 0rem;
-  /* perspective: 500; */
 }
 
 label {
@@ -421,9 +420,6 @@ label {
   padding-left: .4rem;
 }
 
-/* .highlighted {
-    background-color: gray;
-} */
 #display-content {
   margin: 1rem;
 }
@@ -524,20 +520,40 @@ label {
   z-index: -100;
 }
 
+footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: cornflowerblue;
+  -webkit-box-shadow: 0px 5px 20px #2c65ce;
+          box-shadow: 0px 5px 20px #2c65ce;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+footer p {
+  color: white;
+  padding: 20px;
+}
+
 /* ---- TODO LIST ---- */
-/* CHANGE IDS TO CLASSES */
-/* SKEW EFFECT */
-/* SCSS LOOPS + VARIABLES */
-/* KEYFRAMES ANIMATION */
-/* ADJUST TEXT AND MARGIN SIZES */
-/* CHANGE UP CUSTOMIZATIONS BOX */
 /* LOCALSTORAGE */
 /* THREE JS */
 /* WEBPACK */
 /* RENAME PROJECT */
-/* README - WHAT PACKAGES TO INSTALL WITH NPM (HTML2CANVAS) */
-/* DELETE DOMTOIMAGE FROM PACKAGESJSON */
-/* TEST ON OTHER BROWSERS */
+/* README */
 /* ADD TO THEMES.JSON  */
 /* ADD MORE FONTS */
 /* FIX THEME COLORS IN JSON FILE */
@@ -545,7 +561,6 @@ label {
 /* WHICH LANGUAGE (FOR SYNTAX STYLING) */
 /* TAB NAMES??? */
 /* STYLE "SELECT" TAGS */
-/* RANDOMIZE DESIGN */
 /* DOWNLOAD PICTURE OR VIDEO */
 /* RECORD VIDEO OF KEYSTROKES */
 /*# sourceMappingURL=CodeEmbellisher.css.map */

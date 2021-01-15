@@ -8,7 +8,10 @@ const addTabButton = document.querySelector('#new-tab')
 let tabColorInput = document.querySelector('#tab-color')
 let themes = document.querySelector('.themes')
 let displayContent = document.querySelector('#display-content')
+let footerCopyright = document.querySelector('footer p:last-child')
 
+// Changes copyright year to the current year
+footerCopyright.innerText += ' ' + new Date().toLocaleDateString('en-us').slice(-4)
 
 
 // Give main tab the highlighted effect
@@ -36,7 +39,7 @@ function addTab() {
         // Add name
         answer = prompt('Tab Name')
         if (answer && answer.length < 45) {  
-            newLi.innerHTML = answer                 // ADD FUNCTION TO CHANGE FIRST TAB
+            newLi.innerText = answer                 // ADD FUNCTION TO CHANGE FIRST TAB
             tabs.insertBefore(newLi, addTabButton)
             numOfTabs++
         }
