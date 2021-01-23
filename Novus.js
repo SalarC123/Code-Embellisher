@@ -1,3 +1,5 @@
+// import "./novus.scss"
+
 // COMMON DOM VARIABLES
 
 let input = document.querySelector('.main-input')
@@ -10,6 +12,15 @@ let themes = document.querySelector('.themes')
 let displayContent = document.querySelector('#display-content')
 let footerCopyright = document.querySelector('footer p:last-child')
 
+// SHOW NAVBAR LINKS THAT WERE HIDDEN DURING WINDOW RESIZE
+
+let nav = document.querySelector('#navbar-items')
+nav.addEventListener('click', (e) => {
+    if (e.target.parentElement.classList.contains('hamburger')) {
+        document.querySelector('.hamburger-display').classList.toggle('opened')
+    }
+})
+
 // Changes copyright year to the current year
 window.addEventListener('load', () => {
     footerCopyright.innerText += ' ' + new Date().toLocaleDateString('en-us').slice(-4)
@@ -18,12 +29,21 @@ window.addEventListener('load', () => {
 
 // Give main tab the highlighted effect
 let firstTab = document.querySelector('#tabs li:first-child')
-firstTab.style.backgroundColor = tabColorInput.value
+if (firstTab) {
+    firstTab.style.backgroundColor = tabColorInput.value
+}
+
+// SEND MESSAGE FUNCTION
+function sendMessage() {
+    console.log('worked')
+}
 
 // EXPAND ROW + DIV SIZE WHEN TYPING
 
 let currentInput = input;
-let currentTab = tabs.children[0]
+if (currentInput) {
+    let currentInput = tabs.children[0]
+}
 
 function adjustBoxSize(elem = currentInput) {
     elem.style.height = "1px";
@@ -71,7 +91,7 @@ tabs.addEventListener('click', (e) => {
         highlightedTab.classList.remove('highlighted')
         highlightedTab.style.backgroundColor = addTabButton.style.backgroundColor
         e.target.classList.add('highlighted')
-        e.target.style.backgroundColor = displayMenu.style.backgroundColor
+        e.target.style.backgroundColor = tabColorInput.value
 
         // removes all other textareas from view
         Array.from(document.querySelectorAll('textarea')).forEach(function (elem) {
@@ -112,7 +132,7 @@ tabColorInput.addEventListener('change', (e) => {
     displayMenu.style.backgroundColor = tabColor
     let tabsLi = document.querySelectorAll('#tabs li')
     tabsLi.forEach(elem => {
-        elem.style.backgroundColor = lightenOrDarkenColor(tabColor, 20)
+        elem.style.backgroundColor = newTabColor
     })
     
     let highlightedTab = document.querySelector('.highlighted')
@@ -166,14 +186,6 @@ window.lightenOrDarkenColor = lightenOrDarkenColor
 //         https://stackoverflow.com/questions/34528022/resize-textarea-with-div
 //     }
 // })
-
-
-// SHOW NAVBAR LINKS THAT WERE HIDDEN DURING WINDOW RESIZE
-
-function openHamburgerMenu() {
-    document.querySelector('.hamburger-display').classList.toggle('opened')
-}
-window.openHamburgerMenu = openHamburgerMenu;
 
 // CHANGE THEME 
 
@@ -236,6 +248,7 @@ fontFamily.addEventListener('change', (e) => {
 
 function resetStyles() {
     fontInput.value = 18
+    tabColorInput.value = '#b1b1b1'
     currentInput.style.fontSize = '18px'
     currentInput.style.fontFamily = 'Menlo'
     currentInput.style.color = 'black'
@@ -280,17 +293,3 @@ function download () {
     // randomDiv.replaceWith(input)
 }
 window.download = download;
-
-
-// fetch('https://reqres.in/api/users', {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": 'application/json'
-//     },
-//     body: JSON.stringify({
-//         age:13,
-//         height:62
-//     })
-// })
-// .then(res => res.json())
-//   .then(data => console.log(data))
