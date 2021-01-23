@@ -1,4 +1,9 @@
-// import "./novus.scss"
+import "./novus.scss"
+function requireAll(r) { r.keys().forEach(r); }
+
+requireAll(require.context('./Images/', true));
+// requireAll(require.context('../', false, /\.js$/));
+
 
 // COMMON DOM VARIABLES
 
