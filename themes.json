@@ -1,27 +1,44 @@
 {
-    "None": {
-        "mainBG": "#f5f5f5",
-        "textBG": "#f5f5f5",
-        "fontColor": "#000000"
-    },
-    "One Dark": {
-        "mainBG": "#282C34",
-        "textBG": "#282C34",
-        "fontColor": "#ABB2BF"
-    },
-    "Monokai": {
-        "mainBG": "",
-        "textBG": "",
-        "fontColor": ""
-    },
-    "Tokyo Night": {
-        "mainBG": "",
-        "textBG": "",
-        "fontColor": ""
-    },
-    "Bear": {
-        "mainBG": "",
-        "textBG": "",
-        "fontColor": ""
+    "Themes": {
+        "None": {
+            "mainBG": "#f5f5f5",
+            "textBG": "#f5f5f5",
+            "fontColor": "#000000"
+        },
+        "One Dark": {
+            "mainBG": "#282C34",
+            "textBG": "#282C34",
+            "fontColor": "#ABB2BF"
+        },
+        "Monokai": {
+            "mainBG": "#272822",
+            "textBG": "#272822",
+            "fontColor": "#f8f8f2"
+        },
+        "Tomorrow Night Blue": {
+            "mainBG": "#002451",
+            "textBG": "#002451",
+            "fontColor": "#ffffff"
+        },
+        "Quiet Light": {
+            "mainBG": "#f5f5f5",
+            "textBG": "#f5f5f5",
+            "fontColor": "#333333"
+        },
+        "Abyss": {
+            "mainBG": "#000c18",
+            "textBG": "#000c18",
+            "fontColor": "#6688cc"
+        },
+        "Red": {
+            "mainBG": "#390000",
+            "textBG": "#390000",
+            "fontColor": "#f8f8f8"
+        },
+        "Solarized Dark": {
+            "mainBG": "#002b36",
+            "textBG": "#002b36",
+            "fontColor": "#bbbbbb"
+        }
     }
 }
